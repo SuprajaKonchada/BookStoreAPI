@@ -20,6 +20,8 @@ var jwtSettings = configuration.GetSection("JwtSettings").Get<JwtSettings>();
 builder.Services.AddSingleton(jwtSettings);
 builder.Services.AddSingleton<IJwtTokenGenerator, JwtTokenGenerator>();
 
+builder.Services.AddScoped<IAuthService, AuthService>();
+builder.Services.AddScoped<IBookService, BookService>();
 // Add authentication and configure JWT Bearer
 builder.Services.AddAuthentication(options =>
 {
